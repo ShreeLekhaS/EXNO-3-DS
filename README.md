@@ -31,8 +31,54 @@ We use this categorical data encoding technique when the features are nominal(do
 • Yeojohnson method
 
 # CODING AND OUTPUT:
-       # INCLUDE YOUR CODING AND OUTPUT SCREENSHOTS HERE
+```
+import pandas as pd
+import numpy as np
+
+df=pd.read_csv('data.csv',usecols=['Ord_1','Ord_2'])
+df.head()
+```
+![image](https://github.com/user-attachments/assets/a6baeda4-a87f-432f-9f5d-76b1bcec8aa0)
+
+```
+df.shape
+```
+![image](https://github.com/user-attachments/assets/5106abde-3c6c-4b8a-a551-0612fcfceaf8)
+
+```
+pd.get_dummies(df).shape
+```
+![image](https://github.com/user-attachments/assets/47a70f2b-67dd-4146-959c-71b2a10d1575)
+
+```
+len(df['Ord_1'].unique())
+```
+![image](https://github.com/user-attachments/assets/606606dc-41fd-444a-beb2-24fbf52d8779)
+
+```
+len(df['Ord_2'].unique())
+```
+![image](https://github.com/user-attachments/assets/a5aebdbb-f14d-4a17-a06a-c1142e0b7b17)
+```
+for col in df.columns[0:]:
+    print(col,':',len(df[col].unique()),'labels')
+```
+![image](https://github.com/user-attachments/assets/9cb4b753-8804-45c2-8462-4d511532083c)
+
+```
+df.Ord_2.value_counts().to_dict()
+```
+![image](https://github.com/user-attachments/assets/3c52caea-0e19-4a35-a8af-1fcbf1df73b0)
+
+```
+df_frequency_map=df.Ord_2.value_counts().to_dict()
+
+df.Ord_2=df.Ord_2.map(df_frequency_map)
+df.head()
+```
+![image](https://github.com/user-attachments/assets/3785259d-d230-4316-9843-fa6df41729fa)
+
 # RESULT:
-       # INCLUDE YOUR RESULT HERE
+       Thus the given data and performing Feature Encoding and Transformation process was executed successfully
 
        
